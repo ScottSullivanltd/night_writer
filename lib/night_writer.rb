@@ -1,7 +1,11 @@
-read_file = File.open(ARGV[0], "r")
+message_file = File.open(ARGV[0], "r")
 
-file_text = read_file.read
+file_text = message_file.read
 
-read_file.close
+message_file.close
 
 puts "Created '#{ARGV[0]}' containing #{file_text.length} characters"
+
+braille_file = File.open(ARGV[1], "w")
+
+braille_file.close
