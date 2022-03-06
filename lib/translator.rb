@@ -18,9 +18,16 @@ class Translator
   end
 
   def braille_row_two
-   @message.each do |char|
-     @braille_text[:two] << @english_text.characters[char][1]
-   end
-   @braille_text[:two].flatten!
- end
+    @message.each do |char|
+      @braille_text[:two] << @english_text.characters[char][1]
+    end
+    @braille_text[:two].flatten!
+  end
+
+  def braille_row_three
+    @message.each do |char|
+      @braille_text[:three] << @english_text.characters[char][2]
+    end
+    @braille_text[:three].flatten!
+  end
 end
