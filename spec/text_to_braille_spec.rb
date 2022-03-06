@@ -4,7 +4,6 @@ require 'pry'
 RSpec.describe TextToBraille do
   it "exists" do
     english_text = TextToBraille.new
-
     expect(english_text).to be_an_instance_of(TextToBraille)
   end
 
@@ -24,5 +23,14 @@ RSpec.describe TextToBraille do
       'b' => [['0.'], ['0.'], ['..']]
     }
     expect(characters['a']).to eq([['0.'], ['..'], ['..']])
+  end
+
+  it "has the braille values in an array" do
+    characters = {
+      ' ' => [['..'], ['..'], ['..']],
+      'a' => [['0.'], ['..'], ['..']],
+      'b' => [['0.'], ['0.'], ['..']]
+    }
+    expect(characters['a'].class).to eq(Array)
   end
 end
