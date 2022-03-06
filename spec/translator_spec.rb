@@ -42,5 +42,18 @@ RSpec.describe Translator do
       expect(@translator.braille_text).to eq(expected)
     end
 
+    it 'adds line breaks' do
+      @translator.braille_row_one
+      @translator.braille_row_two
+      @translator.braille_row_three
+      @translator.add_line_breaks
+      expected = {
+        one: ['0.', "\n"],
+        two: ['..', "\n"],
+        three: ['..', "\n"]
+      }
+      expect(@translator.braille_text).to eq(expected)
+    end
+
   end
 end
