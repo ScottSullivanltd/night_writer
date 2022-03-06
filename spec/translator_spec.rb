@@ -2,9 +2,24 @@ require './lib/translator'
 require 'pry'
 
 RSpec.describe Translator do
-  it 'exists' do
-    message = 'ab'
-    translator = Translator.new(message)
-    expect(translator).to be_an_instance_of(Translator)
+  context "Test one character" do
+    before (:each) do
+      @message = 'a'
+      @translator = Translator.new(@message)
+    end
+
+    it 'exists' do
+      expect(@translator).to be_an_instance_of(Translator)
+    end
+
+    it 'returns first row of given character in braille' do
+
+      @translator.braille_row_one
+      expected = {
+        one: ['0.']
+      }
+      expect(@translator.braille_text).to eq(expected)
+    end
+
   end
 end
