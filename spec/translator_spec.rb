@@ -55,5 +55,14 @@ RSpec.describe Translator do
       expect(@translator.braille_text).to eq(expected)
     end
 
+    it 'returns the character as completed braille' do
+      @translator.braille_row_one
+      @translator.braille_row_two
+      @translator.braille_row_three
+      @translator.add_line_breaks
+      expected = "0.\n..\n..\n"
+      expect(@translator.join_rows).to eq(expected)
+    end
+
   end
 end
