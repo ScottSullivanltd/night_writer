@@ -21,5 +21,15 @@ RSpec.describe Translator do
       expect(@translator.braille_text).to eq(expected)
     end
 
+    it 'returns second row of given character in braille' do
+      @translator.braille_row_one
+      @translator.braille_row_two
+      expected = {
+        one: ['0.'],
+        two: ['..']
+      }
+      expect(@translator.braille_text).to eq(expected)
+    end
+
   end
 end
