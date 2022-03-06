@@ -37,4 +37,8 @@ class Translator
     @braille_text[:three] << "\n"
   end
 
+  def join_rows
+    @braille_text[:one].join + @braille_text[:two].join + @braille_text[:three].join
+  end
+
 end
