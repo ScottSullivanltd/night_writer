@@ -15,5 +15,12 @@ class Translator
       @braille_text[:one] << @english_text.characters[char][0]
     end
     @braille_text[:one].flatten!
-  end  
+  end
+
+  def braille_row_two
+   @message.each do |char|
+     @braille_text[:two] << @english_text.characters[char][1]
+   end
+   @braille_text[:two].flatten!
+ end
 end
