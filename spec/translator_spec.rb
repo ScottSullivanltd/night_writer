@@ -79,6 +79,21 @@ RSpec.describe Translator do
       expected = "0.0.\n..0.\n....\n"
       expect(@translator.join_rows).to eq(expected)
     end
+  end
 
+  context "Test multiple characters" do
+    before (:each) do
+      @message = 'abyz!'
+      @translator = Translator.new(@message)
+    end
+
+    it 'returns the characters as completed braille' do
+      @translator.braille_row_one
+      @translator.braille_row_two
+      @translator.braille_row_three
+      @translator.add_line_breaks
+      expected = "0.0.000...\n..0..0.000\n....00000.\n"
+      expect(@translator.join_rows).to eq(expected)
+    end
   end
 end
