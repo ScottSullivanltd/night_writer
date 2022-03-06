@@ -30,4 +30,11 @@ class Translator
     end
     @braille_text[:three].flatten!
   end
+
+  def add_line_breaks
+    @braille_text[:one] << "\n"
+    @braille_text[:two] << "\n"
+    @braille_text[:three] << "\n"
+  end
+
 end
