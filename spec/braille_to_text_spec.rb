@@ -9,11 +9,21 @@ RSpec.describe BrailleToText do
 
   it "creates a dictionary of braille characters as a hash" do
     braille_characters = {
-      ['0.', '..', '..'] => 'a',
-      ['0.', '0.', '..'] => 'b',
-      ['00', '..', '..'] => 'c',
+      '0.\n..\n..' => 'a',
+      '0.\n0.\n..' => 'b',
+      '00\n..\n..' => 'c',
     }
     expect(braille_characters.class).to eq(Hash)
+  end
+
+  it "has Braille characters as a key and corresponding english character as value" do
+    braille_characters = {
+      '0.\n..\n..' => 'a',
+      '0.\n0.\n..' => 'b',
+      '00\n..\n..' => 'c',
+    }
+    expect(braille_characters['0.\n..\n..']).to eq('a')
+    expect(braille_characters['0.\n0.\n..']).to eq('b')
   end
 
 end
