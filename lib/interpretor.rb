@@ -5,7 +5,7 @@ class Interpretor
   attr_reader :message, :braille_text, :english_text
 
   def initialize(message)
-    @message = message
+    @message = message.split("\n")
     @braille_text = BrailleToText.new
     @english_text = Hash.new { |h, k| h[k] = [] }
   end
