@@ -9,4 +9,5 @@ class Interpretor
     @braille_text = BrailleToText.new
     @english_text = Hash.new { |h, k| h[k] = [] }
   end
+
 end
