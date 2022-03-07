@@ -38,7 +38,15 @@ class Translator
   end
 
   def join_rows
-    @braille_text[:one].join + @braille_text[:two].join + @braille_text[:three].join
+    braille_length = @braille_text[:one].join.length
+    limit = 80
+    if braille_length > limit
+      head = (@braille_text[:one].join.slice(0, limit) + "\n") + (@braille_text[:two].join.slice(0, limit) + "\n") + (@braille_text[:three].join.slice(0, limit) + "\n")
+      tail = (@braille_text[:one].join.slice(limit, braille_length) + @braille_text[:two].join.slice(limit, braille_length) + @braille_text[:three].join.slice(limit, braille_length))
+      head + tail
+    else
+      @braille_text[:one].join + @braille_text[:two].join + @braille_text[:three].join
+    end
   end
 
 end

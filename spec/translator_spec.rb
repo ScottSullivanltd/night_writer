@@ -96,4 +96,21 @@ RSpec.describe Translator do
       expect(@translator.join_rows).to eq(expected)
     end
   end
+
+  context "Break to new line after 40 characters" do
+    before (:each) do
+      @message = 'once upon a time in a galaxy far far away'
+      @translator = Translator.new(@message)
+    end
+
+    it 'breaks to new line after 40 characters' do
+      @translator.braille_row_one
+      @translator.braille_row_two
+      @translator.braille_row_three
+      @translator.add_line_breaks
+      expected = "0.00000...0.000.00..0....0.0000....000..0...000.0.0.0000..000.0...000.0...0..00.\n.0.0...0....0..0.0......000....0..0..0......00..0......0..0...00..0...00....00..\n0.0.......000.0.0.......0...0.......0...........0...0000......0.......0......0..\n00\n.0\n00\n"
+      expect(@message.length).to eq(41)
+      expect(@translator.join_rows).to eq(expected)
+    end
+  end
 end
