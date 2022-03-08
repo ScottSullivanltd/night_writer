@@ -21,7 +21,7 @@ RSpec.describe Interpretor do
     end
 
     it "joins the Braille text characters into rows" do
-      expect(@interpretor.to_english_character).to eq(["0."],[".."],[".."])
+      expect(@interpretor.join_rows).to eq(["0.", "..", ".."])
     end
 
   end

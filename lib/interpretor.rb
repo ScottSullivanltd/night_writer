@@ -26,4 +26,10 @@ class Interpretor
     grouped_chars
   end
 
+  def join_rows
+    to_english_character.values.map do |row|
+      row.join
+    end
+  end
+
 end
