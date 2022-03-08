@@ -7,7 +7,13 @@ class Interpretor
   def initialize(message)
     @message = message.split("\n")
     @braille_text = BrailleToText.new
-    @english_text = Hash.new { |h, k| h[k] = [] }
+    @english_text = []
+  end
+
+  def convert_from_braille
+    @message.map do |row|
+      row.chars.each_slice(2).map(&:join)
+    end.flatten
   end
 
 end
