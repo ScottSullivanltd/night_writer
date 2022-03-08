@@ -16,4 +16,14 @@ class Interpretor
     end
   end
 
+  def to_english_character
+    grouped_chars = Hash.new { |h, k| h[k] = [] }
+    convert_from_braille.each do |row|
+      row.each.with_index do |char, index|
+        grouped_chars[index] << char
+      end
+    end
+    grouped_chars
+  end
+
 end
