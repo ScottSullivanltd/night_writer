@@ -24,5 +24,9 @@ RSpec.describe Interpretor do
       expect(@interpretor.join_rows).to eq(["0.", "..", ".."])
     end
 
+    it 'returns corresponding english character' do
+      expect(@interpretor.convert_to_text).to eq('a')
+    end
+
   end
 end
