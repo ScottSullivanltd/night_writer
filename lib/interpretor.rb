@@ -13,7 +13,7 @@ class Interpretor
   def convert_from_braille
     @message.map do |row|
       row.chars.each_slice(2).map(&:join)
-    end.flatten
+    end
   end
 
 end

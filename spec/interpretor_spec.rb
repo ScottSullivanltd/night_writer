@@ -13,7 +13,11 @@ RSpec.describe Interpretor do
     end
 
     it "splits Braille message into sets of two Braille text characters" do
-      expect(@interpretor.convert_from_braille).to eq(["0.", "..", ".."])
+      expect(@interpretor.convert_from_braille).to eq([["0.", "..", ".."]])
+    end
+
+    it "groups the Braille text characters into a hash by index" do
+      expect(@interpretor.to_english_character).to eq({0=>["0."], 1=>[".."], 2=>[".."]})
     end
 
   end
