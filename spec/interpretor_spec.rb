@@ -4,7 +4,7 @@ require 'pry'
 RSpec.describe Interpretor do
   context "Test one Braille character" do
     before :each do
-      @braille_message = '0.....0.0...'
+      @braille_message = '0.....'
       @interpretor = Interpretor.new(@braille_message)
     end
 
@@ -13,7 +13,7 @@ RSpec.describe Interpretor do
     end
 
     it "splits Braille message into sets of two Braille text characters" do
-      expect(@interpretor.convert_from_braille).to eq(["0.", "..", "..", "0.", "0.", ".."])
+      expect(@interpretor.convert_from_braille).to eq(["0.", "..", ".."])
     end
 
   end
