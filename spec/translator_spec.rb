@@ -60,8 +60,8 @@ RSpec.describe Translator do
       @translator.braille_row_two
       @translator.braille_row_three
       @translator.add_line_breaks
-      expected = "0.\n..\n..\n"
-      expect(@translator.join_rows).to eq(expected)
+      expected = "0.\n\n..\n\n..\n\n"
+      expect(@translator.return_braille_message).to eq(expected)
     end
   end
 
@@ -76,8 +76,8 @@ RSpec.describe Translator do
       @translator.braille_row_two
       @translator.braille_row_three
       @translator.add_line_breaks
-      expected = "0.0.\n..0.\n....\n"
-      expect(@translator.join_rows).to eq(expected)
+      expected = "0.0.\n\n..0.\n\n....\n\n"
+      expect(@translator.return_braille_message).to eq(expected)
     end
   end
 
@@ -92,8 +92,8 @@ RSpec.describe Translator do
       @translator.braille_row_two
       @translator.braille_row_three
       @translator.add_line_breaks
-      expected = "0.0.000...\n..0..0.000\n....00000.\n"
-      expect(@translator.join_rows).to eq(expected)
+      expected = "0.0.000...\n\n..0..0.000\n\n....00000.\n\n"
+      expect(@translator.return_braille_message).to eq(expected)
     end
   end
 
@@ -108,9 +108,9 @@ RSpec.describe Translator do
       @translator.braille_row_two
       @translator.braille_row_three
       @translator.add_line_breaks
-      expected = "0.00000...0.000.00..0....0.0000....000..0...000.0.0.0000..000.0...000.0...0..00.\n.0.0...0....0..0.0......000....0..0..0......00..0......0..0...00..0...00....00..\n0.0.......000.0.0.......0...0.......0...........0...0000......0.......0......0..\n00\n.0\n00\n"
+      expected = "0.00000...0.000.00..0....0.0000....000..0...000.0.0.0000..000.0...000.0...0..00.\n.0.0...0....0..0.0......000....0..0..0......00..0......0..0...00..0...00....00..\n0.0.......000.0.0.......0...0.......0...........0...0000......0.......0......0..\n00\n\n.0\n\n00\n\n"
       expect(@message.length).to eq(41)
-      expect(@translator.join_rows).to eq(expected)
+      expect(@translator.return_braille_message).to eq(expected)
     end
   end
 end
