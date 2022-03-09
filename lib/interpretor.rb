@@ -32,4 +32,10 @@ class Interpretor
     end
   end
 
+  def convert_to_text
+    join_rows.each do |row|
+      @english_text << @braille_text.braille_characters[row]
+    end
+  end
+
 end

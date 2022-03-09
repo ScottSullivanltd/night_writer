@@ -37,16 +37,16 @@ class Translator
     @braille_text[:three] << "\n"
   end
 
-  def join_rows
-    braille_length = @braille_text[:one].join.length
-    limit = 80
-    if braille_length > limit
-      head = (@braille_text[:one].join.slice(0, limit) + "\n") + (@braille_text[:two].join.slice(0, limit) + "\n") + (@braille_text[:three].join.slice(0, limit) + "\n")
-      tail = (@braille_text[:one].join.slice(limit, braille_length) + @braille_text[:two].join.slice(limit, braille_length) + @braille_text[:three].join.slice(limit, braille_length))
-      head + tail
-    else
-      @braille_text[:one].join + @braille_text[:two].join + @braille_text[:three].join
+  def return_braille_message
+    row_one = @braille_text[:one].each_slice(40).map {|s| s.join}
+    row_two = @braille_text[:two].each_slice(40).map {|s| s.join}
+    row_three = @braille_text[:three].each_slice(40).map {|s| s.join}
+    index = 0
+    string = ""
+    row_one.length.times do
+      string << "#{row_one[index]}\n#{row_two[index]}\n#{row_three[index]}\n"
+      index = index + 1
     end
+    string
   end
-
 end
